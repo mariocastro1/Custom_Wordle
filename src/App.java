@@ -40,7 +40,7 @@ public class App {
 
     public static String game() { 
         String goal = word_gen();
-        String answer ="You lose!";
+        String answer ="You lose! \n The word was: " + goal;
         String word = "";
         String result = "XXXXX";
         // System.out.println(goal);
