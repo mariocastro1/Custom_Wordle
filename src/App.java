@@ -45,7 +45,7 @@ public class App {
         String result = "XXXXX";
         // System.out.println(goal);
 
-        for (int i = 0 ; i <= tries || !answer.equals("You win!") ; i++) {
+        for (int i = 0 ; i <= tries && !answer.equals("You win!") ; i++) {
             word = ask_word();
             result = "XXXXX";
 
