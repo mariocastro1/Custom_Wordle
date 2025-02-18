@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class App {
     
-    private static String words_file = "src/hard_words.txt"; //file with the game words
+    private static String words_file = "custom_wordle/src/hard_words.txt"; //file with the game words
     private static int tries = 6;
 
     
@@ -29,9 +29,18 @@ public class App {
     }
 
     public static String ask_word() {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Choose a word: \n");
-        String word = scanner.next();
+        String word = "";
+        while (true) {
+            System.out.print("Choose a 5-letter word: \n");
+            word = scanner.next().toUpperCase();
+            if (word.length() == 5) {
+                break;
+            } else {
+                System.out.println("The word must be exactly 5 letters long. Try again.");
+            }
+        }
         // scanner.close(); 
         return word;
     }
@@ -43,7 +52,6 @@ public class App {
         String answer ="You lose! \n The word was: " + goal;
         String word = "";
         String result = "XXXXX";
-        // System.out.println(goal);
 
         for (int i = 0 ; i <= tries && !answer.equals("You win!") ; i++) {
             word = ask_word();
@@ -71,11 +79,6 @@ public class App {
         return null;
     }
 
-
-
-
-    
-    
         public static void main(String[] args) throws Exception {
         game();
     }
